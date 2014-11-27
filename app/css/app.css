@@ -28,8 +28,11 @@ body {
 
 .phones li {
   clear: both;
-  height: 115px;
   padding-top: 15px;
+}
+
+.phones li .btn {
+    margin-bottom: 1em;
 }
 
 /** Detail View **/
@@ -55,7 +58,6 @@ ul.phone-thumbs {
 }
 
 ul.phone-thumbs li {
-  border: 1px solid black;
   display: inline-block;
   margin: 1em;
   background-color: white;
@@ -74,7 +76,7 @@ ul.phone-thumbs img:hover {
 
 ul.specs {
   clear: both;
-  margin: 0;
+  margin-left: 3em;
   padding: 0;
   list-style: none;
 }
@@ -96,4 +98,35 @@ ul.specs dt {
 
 h1 {
   border-bottom: 1px solid gray;
+}
+
+/* Edit View */
+#phoneEdit .form-group.phone-thumbs {
+    padding: 0;
+}
+
+#phoneEdit ul.phone-thumbs li {
+    position: relative;
+    margin-left: 0 !important;
+}
+
+#phoneEdit ul.phone-thumbs li img:hover {
+    cursor: default;
+}
+
+#phoneEdit ul.phone-thumbs li img:hover + span,
+#phoneEdit ul.phone-thumbs li span:hover {
+    display: inline;
+}
+
+#phoneEdit .phone-thumbs li span {
+    position: absolute;
+    left: 85px;
+    cursor: pointer;
+    display: none;
+}
+
+#phoneEdit #canvas {
+    width: 100px;
+    height: 100px;
 }

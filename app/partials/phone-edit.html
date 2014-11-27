@@ -1,0 +1,164 @@
+<div class="container">
+    <form name="phoneEdit" role="form" id="phoneEdit">
+    
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" class="form-control" id="name" title="Name" ng-model="phone.name" />
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description: </label>
+            <textarea class="form-control" id="description" title="Description" ng-model="phone.description" />
+        </div>
+        
+        <fieldset>
+            <legend>Images</legend>
+            <ul class="form-group phone-thumbs">
+                <li ng-repeat="img in phone.images">
+                    <img ng-src="{{img}}" class="img-thumbnail">
+                    <span class="glyphicon glyphicon-remove" ng-click="deleteImage($index)" />
+                    <input type="hidden" class="form-control" ng-model="phone.images[$index]">
+                </li>
+            </ul>
+            <div id="newImage" class="hide">
+                <canvas id="canvas" class="img-thumbnail" />
+                <span>Name: {{newImage.name}}, size: {{newImage.size}}</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="selectFile()">Select File</button>
+                <input id="inputFile" type="file" accept="image/*" class="hidden" my-canvas />
+                <button class="btn btn-primary" ng-click="addImage()">Add Image</button>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Specs</legend>
+            <section>
+                <h4>Battery</h4></section>
+                <div class="form-group">
+                    <label for="batteryType">Type: </label>
+                    <input type="text" class="form-control" id="batteryType" title="Battery Type" ng-model="phone.battery.type" />
+                </div>
+                <div class="form-group">
+                    <label for="batteryTalkTime">Talk Time: </label>
+                    <input type="text" class="form-control" id="batteryTalkTime" title="Battery Talk Time" ng-model="phone.battery.talkTime">
+                </div>
+                <div class="form-group">
+                    <label for="batteryStandByTime">StandBy Time: </label>
+                    <input type="text" class="form-control" id="batteryStandByTime" title="Battery Stand By Time" ng-model="phone.battery.standbyTime" />
+                </div>
+            </section>
+            <section>
+                <h4>Storage and Memory</h4>
+                <div class="form-group">
+                    <label for="ram">RAM: </label>
+                    <input type="text" class="form-control" id="ram" title="RAM" ng-model="phone.storage.ram" />
+                </div>
+                <div class="form-group">
+                    <label for="flash">Internal Storage: </label>
+                    <input type="text" class="form-control" id="flash" title="Internal Storage" ng-model="phone.storage.flash" />
+                </div>
+            </section>
+            <section>
+                <h4>Connectivity</h4>
+                <div class="form-group">
+                    <label for="cell">Network Support: </label>
+                    <input type="text" class="form-control" id="cell" title="Network Support" ng-model="phone.connectivity.cell" />
+                </div>
+                <div class="form-group">
+                    <label for="wifi">WiFi: </label>
+                    <input type="text" class="form-control" id="wifi" title="WiFi" ng-model="phone.connectivity.wifi" />
+                </div>
+                <div class="form-group">
+                    <label for="bluetooth">Bluetooth: </label>
+                    <input type="text" class="form-control" id="bluetooth" title="Bluetooth" ng-model="phone.connectivity.bluetooth" />
+                </div>
+                <div class="form-group">
+                    <label for="infrared">Infrared: </label>
+                    <input type="checkbox" id="infrared" title="Infrared" ng-model="phone.connectivity.infrared" />
+                    <label for="gps">GPS: </label>
+                    <input type="checkbox" id="gps" title="GPS" ng-model="phone.connectivity.gps" />
+                </div>
+            </section>
+            <section>
+                <h4>Android</h4>
+                <div class="form-group">
+                    <label for="os">OS Version: </label>
+                    <input type="text" class="form-control" id="os" title="OS Version" ng-model="phone.android.os" />
+                </div>
+                <div class="form-group">
+                    <label for="ui">UI: </label>
+                    <input type="text" class="form-control" id="ui" title="UI" ng-model="phone.android.ui" />
+                </div>
+            </section>
+            <section>
+                <h4>Size and Weight</h4>
+                <div class="form-group">
+                    <label for="dimensions">Dimensions: </label>
+                    <input type="text" class="form-control" id="dimensions" title="Dimensions" ng-model="phone.sizeAndWeight.dimensions" />
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight: </label>
+                    <input type="text" class="form-control" id="weight" title="Weight" ng-model="phone.sizeAndWeight.weight" />
+                </div>
+            </section>
+            <section>
+                <h4>Display</h4>
+                <div class="form-group">
+                    <label for="screenSize">Screen Size: </label>
+                    <input type="text" class="form-control" id="screenSize" title="Screen Size" ng-model="phone.display.screenSize" />
+                </div>
+                <div class="form-group">
+                    <label for="screenResolution">Screen Resolution: </label>
+                    <input type="text" class="form-control" id="screenResolution" title="Screen Resolution" ng-model="phone.display.screenResolution" />
+                </div>
+                <div class="form-group">
+                    <label for="touchScreen">Touch Screen: </label>
+                    <input type="checkbox" id="touchScreen" title="Touch Screen" ng-model="phone.display.touchScreen" />
+                </div>
+            </section>
+            <section>
+                <h4>Hardware</h4>
+                <div class="form-group">
+                    <label for="cpu">CPU: </label>
+                    <input type="text" class="form-control" id="cpu" title="CPU" ng-model="phone.hardware.cpu" />
+                </div>
+                <div class="form-group">
+                    <label for="usb">USB: </label>
+                    <input type="text" class="form-control" id="usb" title="USB" ng-model="phone.hardware.usb" />
+                </div>
+                <div class="form-group">
+                    <label for="audioJack">Audio / headphone jack: </label>
+                    <input type="text" class="form-control" id="audioJack" title="Audio / headphone jack" ng-model="phone.hardware.audioJack" />
+                </div>
+                <div class="form-group">
+                    <label for="fmRadio">FM Radio: </label>
+                    <input type="checkbox" id="fmRadio" title="FM Radio" ng-model="phone.hardware.fmRadio" />
+                </div>
+                <div class="form-group">
+                    <label for="accelerometer">Accelerometer: </label>
+                    <input type="checkbox" id="accelerometer" title="Accelerometer" ng-model="phone.hardware.accelerometer" />
+                </div>
+            </section>
+            <section>
+                <h4>Camera</h4>
+                <div class="form-group">
+                    <label for="primary">Primary: </label>
+                    <input type="text" class="form-control" id="primary" title="Primary" ng-model="phone.camera.primary" />
+                </div>
+                <div class="form-group">
+                    <label for="features">Features: </label>
+                    <input type="text" class="form-control" id="features" title="Features" ng-model="phone.camera.features" />
+                </div>
+            </section>
+            <section>
+                <h4>Additional Features</h4>
+                <div class="form-group">
+                    <label for="additionalFeatures">Additional Features: </label>
+                    <input type="text" class="form-control" id="additionalFeatures" title="Additional Features" ng-model="phone.additionalFeatures" />
+                </div>
+            </section>
+        </fieldset>
+        <button class="btn btn-primary" ng-click="editPhone(phone)">Save</button>
+    </form>
+</div>

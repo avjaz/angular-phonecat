@@ -8,7 +8,8 @@ var phonecatApp = angular.module('phonecatApp', [
 
   'phonecatControllers',
   'phonecatFilters',
-  'phonecatServices'
+  'phonecatServices',
+  'phonecatDirectives'    
 ]);
 
 phonecatApp.config(['$routeProvider',
@@ -20,6 +21,10 @@ phonecatApp.config(['$routeProvider',
       }).
       when('/phones/:phoneId', {
         templateUrl: 'partials/phone-detail.html',
+        controller: 'PhoneDetailCtrl'
+      }).
+      when('/phones/:phoneId/edit', {
+        templateUrl: 'partials/phone-edit.html',
         controller: 'PhoneDetailCtrl'
       }).
       otherwise({
